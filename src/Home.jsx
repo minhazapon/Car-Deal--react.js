@@ -1,5 +1,6 @@
 import Banner from "./home file/Banner";
 import CarLogo from "./home file/CarLogo";
+import Lates from "./home file/Lates";
 import Number from "./home file/Number";
 import PopularCar from "./home file/PopularCar";
 import Service from "./home file/Service";
@@ -17,6 +18,7 @@ const Home = () => {
             <Number></Number>
             <PopularCar></PopularCar>
             <CarLogo></CarLogo>
+            <Lates></Lates>
             
         </div>
     );

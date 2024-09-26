@@ -1,4 +1,4 @@
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 
 
@@ -11,10 +11,10 @@ const Nav = () => {
        <div className=" flex-col md:flex-row lg:flex-row flex items-center gap-3 ">
          
        <li className=" rounded-md border-[1px] border-[#00CCDD] text-white font-mono"><NavLink to='/' >Home</NavLink></li>
-       <li className=" rounded-md border-[1px] border-[#00CCDD] text-white font-mono"><NavLink to='/about' >about</NavLink></li>
-       <li className=" rounded-md border-[1px] border-[#00CCDD] text-white font-mono"><NavLink to='/service' >service</NavLink></li>
-       <li className=" rounded-md border-[1px] border-[#00CCDD] text-white font-mono"><NavLink to='/blog' >Blog</NavLink></li>
-       <li className=" rounded-md border-[1px] border-[#00CCDD] text-white font-mono"><NavLink to='/contact' >Contact</NavLink></li>
+       <li className=" rounded-md border-[1px] border-[#00CCDD] text-white font-mono"><NavLink to='/order' >Order</NavLink></li>
+       <li className=" rounded-md border-[1px] border-[#00CCDD] text-white font-mono"><NavLink to='/add' >Add</NavLink></li>
+       <li className=" rounded-md border-[1px] border-[#00CCDD] text-white font-mono"><NavLink to='/details' >Car Details</NavLink></li>
+       <li className=" rounded-md border-[1px] border-[#00CCDD] text-white font-mono"><NavLink to='/manage' >Manage</NavLink></li>
  
        </div>
       
@@ -60,7 +60,10 @@ const Nav = () => {
     </ul>
   </div>
   <div className="navbar-end">
+    <Link to='/login' >
     <a className="btn bg-black text-[#00CCDD]  border-[1px] border-[#00CCDD]">login</a>
+    </Link>
+  
   </div>
 </div>
             
