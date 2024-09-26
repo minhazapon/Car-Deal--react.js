@@ -9,7 +9,7 @@ const Registration = () => {
 
 
     <div className="flex flex-col w-full max-w-md p-12 space-y-4 text-center bg-black border-[1px]  border-[#00CCDD] text-gray-100">
-        <h1 className="text-3xl font-semibold">Sign in to your account</h1>
+        <h1 className="text-3xl font-semibold">Sign Up to your account</h1>
         <a className="text-sm text-gray-400" href="/">Or start your free trial</a>
         <form noValidate="" className="space-y-4">
             <div className="flex flex-col">
