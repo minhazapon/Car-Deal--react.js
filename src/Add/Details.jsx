@@ -12,7 +12,7 @@ const Details = ({carUser}) => {
 
     const handleDelete = delete_id =>{
 
-       console.log(_id)
+       console.log(_id) 
 
 
        Swal.fire({
@@ -26,7 +26,7 @@ const Details = ({carUser}) => {
       }).then((result) => {
         if (result.isConfirmed) {
 
-            fetch(`http://localhost:5000/carData/${delete_id}`, {
+            fetch(`http://localhost:5000/carData/${_id}`, {
              
                 method: 'DELETE',
                 
@@ -41,6 +41,7 @@ const Details = ({carUser}) => {
                         text: "Your file has been deleted.",
                         icon: "success"
                       });
+                      
 
 
                 }
@@ -90,7 +91,7 @@ const Details = ({carUser}) => {
               <button onClick={()=> handleDelete(carUser._id)}> <img className=" btn h-[35px] rounded-xl " src="https://cdn-icons-gif.flaticon.com/8948/8948328.gif" alt="" /></button>
               </label>
               <label>
-                <Link to={`/update/${carUser._id}`} >
+                <Link to={`/update/${_id}`} >
                 <button > <img className=" btn h-[35px] rounded-xl " src="https://cdn-icons-gif.flaticon.com/17122/17122352.gif" alt="" /></button>
                 </Link>
               

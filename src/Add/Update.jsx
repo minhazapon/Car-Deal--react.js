@@ -8,6 +8,8 @@ const Update = () => {
 
     const load = useLoaderData();
 
+    const { _id, name, brand, price, category, description, photourl} = load
+
 
     const handleUp = e =>{
 
@@ -22,7 +24,7 @@ const Update = () => {
         const UpUsers = { name, brand, price, category, description, photourl }
         console.log(UpUsers)
 
-        fetch(`http://localhost:5000/carData/${load._id}`, {
+        fetch(`http://localhost:5000/carData/${_id}`, {
 
            method: 'PUT',
            headers:{
@@ -34,7 +36,7 @@ const Update = () => {
         .then( res => res.json())
         .then(data => {
             console.log(data)
-            if(data.modifiedCount > 0){
+            if(data.modifiedCount  > 0){
                 Swal.fire({
                     title: 'Update!',
                     text: 'Update Send SuccessFully',
@@ -81,22 +83,22 @@ const Update = () => {
           <div class="grid gap-4 sm:grid-cols-2 sm:gap-6">
               <div class="sm:col-span-2">
                   <label for="name" class="block mb-2 text-sm font-medium text-[#00CCDD] dark:text-white">Product Name</label>
-                  <input className=" bg-gray-50 border border-gray-300 text-[#00CCDD] text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 "  placeholder="Type product name" required type="text" name="name" />
+                  <input className=" bg-gray-50 border border-gray-300 text-[#00CCDD] text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 "   placeholder="Type product name" required type="text" name="name" defaultValue={name} />
                   {/* <input type="text" name="name" id="name" class="bg-gray-50 border border-gray-300 text-[#00CCDD] text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Type product name" required=""> */}
               </div>
               <div class="w-full">
                   <label for="brand" class="block mb-2 text-sm font-medium text-[#00CCDD] dark:text-white">Brand</label>
-                  <input  name="brand" id="brand" class="bg-gray-50 border border-gray-300 text-[#00CCDD] text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Product brand" required="" type="text" />
+                  <input  name="brand" id="brand" class="bg-gray-50 border border-gray-300 text-[#00CCDD] text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"  placeholder="Product brand" required="" type="text" defaultValue={brand} />
                   {/* <input type="text" name="brand" id="brand" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Product brand" required=""> */}
               </div>
               <div class="w-full">
                   <label for="price" class="block mb-2 text-sm font-medium text-[#00CCDD] dark:text-white">Price</label>
-                  <input type="number" name="price" id="price" class="bg-gray-50 border border-gray-300 text-[#00CCDD] text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="$2999" required=""  />
+                  <input type="number" name="price" id="price" class="bg-gray-50 border border-gray-300 text-[#00CCDD] text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="$2999" required="" defaultValue={price}  />
                   {/* <input type="number" name="price" id="price" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="$2999" required=""> */}
               </div>
               <div>
                   <label for="category" class="block mb-2 text-sm font-medium text-[#00CCDD] dark:text-white">Category</label>
-                  <select id="category" name="category" class="bg-gray-50 border border-gray-300  text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500">
+                  <select id="category" name="category" defaultValue={category} class="bg-gray-50 border border-gray-300  text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500">
                       <option selected="">Select category</option>
                       <option value="Premium">Premium</option>
                       <option value="General">General</option>
@@ -105,13 +107,13 @@ const Update = () => {
               </div>
               <div>
                   <label for="item-weight" class="block mb-2 text-sm font-medium text-[#00CCDD] dark:text-white">PhotoUrl</label>
-                  <input  placeholder="PhotoUrl" class="bg-gray-50 border border-gray-300 text-[#00CCDD] text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" type="url" name="photourl" id="" />
+                  <input  placeholder="PhotoUrl" class="bg-gray-50 border border-gray-300 text-[#00CCDD] text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" type="url" name="photourl" defaultValue={photourl} id="" />
                   {/* <input name="series" id="item-weight" class="bg-gray-50 border border-gray-300 text-[#00CCDD] text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="series" required="" type="text" /> */}
                   {/* <input type="number" name="item-weight" id="item-weight" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="12" required=""> */}
               </div> 
               <div class="sm:col-span-2">
                   <label for="description" class="block mb-2 text-sm font-medium text-[#00CCDD] dark:text-white">Description</label>
-                  <textarea id="description" rows="8" name="description" class="block p-2.5 w-full text-sm text-[#00CCDD] bg-gray-50 rounded-lg border border-gray-300 focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Your description here"></textarea>
+                  <textarea id="description" rows="8" name="description" defaultValue={description} class="block p-2.5 w-full text-sm text-[#00CCDD] bg-gray-50 rounded-lg border border-gray-300 focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Your description here"></textarea>
               </div>
           </div>
           <button type="submit" class="inline-flex items-center px-5 py-2.5 mt-4 sm:mt-6 text-sm font-medium text-center text-white bg-black btn rounded-lg focus:ring-4 focus:ring-primary-200 dark:focus:ring-primary-900 hover:bg-primary-800 border-[1px] border-[#00CCDD] ">
