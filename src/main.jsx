@@ -16,6 +16,11 @@ import Login from './Firebase and sign/Login.jsx';
 import Registration from './Firebase and sign/Registration.jsx';
 import Contact from './home file/Contact.jsx';
 import Update from './Add/Update.jsx';
+import AuthContext from './firebase/AuthContext.jsx';
+import PrivateRoute from './firebase/PrivateRoute.jsx';
+
+
+
 
 
 const router = createBrowserRouter([
@@ -29,23 +34,23 @@ const router = createBrowserRouter([
       },
       {
         path: "/add",
-        element:   <Add></Add>    ,
+        element:   <PrivateRoute><Add></Add></PrivateRoute>  ,
       },
       {
         path: "/order",
-        element:  <Order></Order> ,
+        element: <PrivateRoute><Order></Order></PrivateRoute>   ,
       },
       {
         path: "/details",
-        element:  <CarDetails></CarDetails>    ,
+        element: <PrivateRoute><CarDetails></CarDetails></PrivateRoute>      ,
       },
       {
         path: "/manage",
-        element:  <Manage></Manage> ,
+        element: <PrivateRoute><Manage></Manage></PrivateRoute>   ,
       },
       {
         path: "/login",
-        element:   <Login></Login> ,
+        element:    <Login></Login> ,
       },
       {
         path: "/up",
@@ -53,11 +58,11 @@ const router = createBrowserRouter([
       },
       {
         path: "/contact",
-        element:  <Contact></Contact> ,
+        element:  <PrivateRoute><Contact></Contact></PrivateRoute>  ,
       },
       {
         path: "/update/:id",
-        element:   <Update></Update> ,
+        element: <Update></Update> ,
         loader: ({params}) => fetch(`http://localhost:5000/carData/${params.id}`)
       },
     ],
@@ -66,6 +71,12 @@ const router = createBrowserRouter([
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-      <RouterProvider router={router} />
+    
+    <AuthContext>
+         
+    <RouterProvider router={router} />
+ 
+    </AuthContext>
+      
   </StrictMode>,
 )
