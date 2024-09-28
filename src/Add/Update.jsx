@@ -1,14 +1,17 @@
+import { useLoaderData } from "react-router-dom";
 import Swal from "sweetalert2";
 
 
+const Update = () => {
 
-const Add = () => {
 
 
-    const handleAdd = e =>{
-       
+    const load = useLoaderData();
+
+
+    const handleUp = e =>{
+
         e.preventDefault();
-
         const form = e.target 
         const name = form.name.value 
         const brand = form.brand.value 
@@ -16,40 +19,41 @@ const Add = () => {
         const category = form.category.value 
         const description = form.description.value 
         const photourl = form.photourl.value 
-        const addUsers = { name, brand, price, category, description, photourl }
-        console.log(addUsers)
+        const UpUsers = { name, brand, price, category, description, photourl }
+        console.log(UpUsers)
 
-        fetch('http://localhost:5000/carData', {
-        method: 'POST',
-        headers: {
-            'content-type': 'application/json'
-        },
-        body: JSON.stringify(addUsers)
+        fetch(`http://localhost:5000/carData/${load._id}`, {
+
+           method: 'PUT',
+           headers:{
+              'content-type': 'application/json'
+           },
+           body: JSON.stringify(UpUsers)
 
         })
         .then( res => res.json())
         .then(data => {
             console.log(data)
-            if(data.insertedId){
-              
+            if(data.modifiedCount > 0){
                 Swal.fire({
-                    title: 'Success!',
-                    text: 'Data Send SuccessFully',
+                    title: 'Update!',
+                    text: 'Update Send SuccessFully',
                     icon: 'success',
                     confirmButtonText: 'Cool'
                   })
 
                 form.reset();  
 
+
             }
-        })
+        }) 
 
 
     }
 
-    
+
     return (
-        <div className=" mt-10 mb-10 ml-5 mr-5"> 
+          <div className=" mt-10 mb-10 ml-5 mr-5"> 
 
           <div>
 
@@ -59,7 +63,7 @@ const Add = () => {
                 backgroundImage: "url(  https://img.freepik.com/free-photo/luxurious-car-parked-highway-with-illuminated-headlight-sunset_181624-60607.jpg?t=st=1727348751~exp=1727352351~hmac=2efc71bd6dcb55e003e8be2d1ce32bac9d9133b18a3d6c187d34466d12c56ccf&w=740  )",
                }}   
                >
-              <p className=" bg-gradient-to-r from-black p-5 text-5xl font-thin text-white">Add Products</p>
+              <p className=" bg-gradient-to-r from-black p-5 text-5xl font-thin text-white">Update Products</p>
               </div>
 
 
@@ -72,8 +76,8 @@ const Add = () => {
 
              <section class="bg-black dark:bg-gray-900 mt-10 border-[1px] border-[#00CCDD] rounded-xl ">
   <div class="py-8 px-4 mx-auto max-w-2xl lg:py-16">
-      <h2 class="mb-4 text-xl font-bold text-[#00CCDD] dark:text-white  ">Add a new product</h2>
-      <form onSubmit={handleAdd} >
+      <h2 class="mb-4 text-xl font-bold text-[#00CCDD] dark:text-white  ">Update product</h2>
+      <form onSubmit={handleUp} >
           <div class="grid gap-4 sm:grid-cols-2 sm:gap-6">
               <div class="sm:col-span-2">
                   <label for="name" class="block mb-2 text-sm font-medium text-[#00CCDD] dark:text-white">Product Name</label>
@@ -111,7 +115,7 @@ const Add = () => {
               </div>
           </div>
           <button type="submit" class="inline-flex items-center px-5 py-2.5 mt-4 sm:mt-6 text-sm font-medium text-center text-white bg-black btn rounded-lg focus:ring-4 focus:ring-primary-200 dark:focus:ring-primary-900 hover:bg-primary-800 border-[1px] border-[#00CCDD] ">
-              Add product
+              Update product
           </button>
       </form>
   </div>
@@ -126,4 +130,4 @@ const Add = () => {
     );
 };
 
-export default Add;
+export default Update;

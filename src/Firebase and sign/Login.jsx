@@ -61,6 +61,13 @@ const Login = () => {
 		<button type="button" className="w-full px-8 py-3 font-semibold rounded-md bg-black border-[1px]  btn border-[#00CCDD] text-white">Sign in</button>
 	</form>
 </div>
+
+
+
+{/* 
+          <div>
+			  <img src="https://cdn-icons-gif.flaticon.com/6569/6569164.gif" alt="" />
+		  </div> */}
             
         </div>
     );

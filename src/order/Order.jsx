@@ -49,8 +49,8 @@ const Order = () => {
                         </select>
                     </div>
                     <div>
-                        <label for="item-weight" class="block mb-2 text-sm font-medium text-[#00CCDD] dark:text-white">Series Name</label>
-                        <input name="series" id="item-weight" class="bg-gray-50 border border-gray-300 text-[#00CCDD] text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="series" required="" type="text" />
+                        <label for="item-weight" class="block mb-2 text-sm font-medium text-[#00CCDD] dark:text-white">PhotoUrl</label>
+                        <input  placeholder="PhotoUrl" class="bg-gray-50 border border-gray-300 text-[#00CCDD] text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" type="url" name="photourl" id="" />
                         {/* <input type="number" name="item-weight" id="item-weight" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="12" required=""> */}
                     </div> 
                     <div class="sm:col-span-2">

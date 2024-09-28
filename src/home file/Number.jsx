@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 
 
 
@@ -21,8 +22,12 @@ const Number = () => {
                  </div>
 
                  <div className=" flex-col md:flex-row lg:flex-row  flex justify-center items-center gap-2 mt-5">
+                    <Link to='/order'>
                     <button className=" btn border-[1px] border-yellow-400 w-[100px] bg-black text-white ">Order</button>
+                    </Link>
+                    <Link to='/add'>
                     <button className=" btn border-[1px] border-yellow-400 w-[100px] bg-black text-white ">Add</button>
+                    </Link>
                  </div>
                  </div>
 

@@ -14,6 +14,8 @@ import CarDetails from './Add/CarDetails.jsx';
 import Manage from './order/Manage.jsx';
 import Login from './Firebase and sign/Login.jsx';
 import Registration from './Firebase and sign/Registration.jsx';
+import Contact from './home file/Contact.jsx';
+import Update from './Add/Update.jsx';
 
 
 const router = createBrowserRouter([
@@ -48,6 +50,15 @@ const router = createBrowserRouter([
       {
         path: "/up",
         element:  <Registration></Registration> ,
+      },
+      {
+        path: "/contact",
+        element:  <Contact></Contact> ,
+      },
+      {
+        path: "/update/:id",
+        element:   <Update></Update> ,
+        loader: ({params}) => fetch(`http://localhost:5000/carData/${params.id}`)
       },
     ],
   },

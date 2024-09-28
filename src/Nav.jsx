@@ -14,7 +14,8 @@ const Nav = () => {
        <li className=" rounded-md border-[1px] border-[#00CCDD] text-white font-mono"><NavLink to='/order' >Order</NavLink></li>
        <li className=" rounded-md border-[1px] border-[#00CCDD] text-white font-mono"><NavLink to='/add' >Add</NavLink></li>
        <li className=" rounded-md border-[1px] border-[#00CCDD] text-white font-mono"><NavLink to='/details' >Car Details</NavLink></li>
-       <li className=" rounded-md border-[1px] border-[#00CCDD] text-white font-mono"><NavLink to='/manage' >Manage</NavLink></li>
+       <li className=" rounded-md border-[1px] border-[#00CCDD] text-white font-mono"><NavLink to='/manage' >Manage All Orders</NavLink></li>
+       <li className=" rounded-md border-[1px] border-[#00CCDD] text-white font-mono"><NavLink to='/contact' >Contact</NavLink></li>
  
        </div>
       
