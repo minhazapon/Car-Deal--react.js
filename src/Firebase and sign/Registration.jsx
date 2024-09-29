@@ -2,6 +2,7 @@ import { useContext } from "react";
 import { fireContext } from "../firebase/AuthContext";
 import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
 
 
@@ -18,13 +19,23 @@ const Registration = () => {
         e.preventDefault();
         const email = e.target.email.value
         const password = e.target.password.value
-        console.log(email, password)
+        // console.log(email, password)
   
         createUser(email, password)
         .then(result => {
           console.log(result.user)
           e.target.reset()
 		  navigate('/')
+          
+          const usersAuth = { email }
+          //jwt//
+           
+          axios.post('http://localhost:5000/jwt', usersAuth )
+          .then( res => {
+            console.log(res.data)
+          } )
+
+
           if(result){
 
             Swal.fire({
