@@ -2,6 +2,7 @@ import { useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { fireContext } from "../firebase/AuthContext";
 import Swal from "sweetalert2";
+import axios from "axios";
 
 
 
@@ -25,6 +26,16 @@ const Login = () => {
           console.log(result.user)
 		  e.target.reset()
 		  navigate('/')
+
+		  const usersAuth = { email }
+          //jwt//
+           
+          axios.post('http://localhost:5000/jwt', usersAuth )
+          .then( res => {
+            console.log(res.data)
+          } )
+
+
 		  if(result){
 
             Swal.fire({
